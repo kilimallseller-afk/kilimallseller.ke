@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f36b21">
+<meta name="description" content="Shop electronics, phones, fashion and home products at Kili-Style Market Kenya.">
+<title>Kili-Style Market | Online Shopping Kenya</title>
+
+<style>
+:root {
+    --orange: #f36b21;
+    --dark: #20242b;
+    --background: #f5f6f8;
+    --border: #e5e8ed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: #252c36;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.topbar {
+    background: var(--dark);
+    color: white;
+    padding: 10px 4%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+header {
+    background: white;
+}
+
+.header-main {
+    padding: 18px 4%;
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 15px;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+.tagline {
+    font-size: 11px;
+    color: #687382;
+    margin-top: 5px;
+}
+
+.search {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.search input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: none;
+    outline: none;
+}
+
+.search button, .btn {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions button {
+    border: none;
+    background: white;
+}
+
+nav {
+    background: white;
+    padding: 12px 4%;
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+}
+
+nav a:hover {
+    color: var(--orange);
+}
+
+main {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr) 220px;
+    gap: 15px;
+}
+
+.panel, .info {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.category-title {
+    background: var(--orange);
+    color: white;
+    padding: 14px;
+    font-weight: bold;
+}
+
+.category {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px;
+    border: none;
+    background: white;
+    font-size: 13px;
+}
+
+.category:hover, .category.active {
+    background: #fff0e8;
+    color: #d95410;
+}
+
+.hero {
+    background: linear-gradient(110deg, #101720, #39495b);
+    color: white;
+    border-radius: 8px;
+    padding: 28px;
+    min-height: 245px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(27px, 3vw, 42px);
+    margin: 0 0 12px;
+}
+
+.hero h1 span {
+    color: #ff9a5d;
+}
+
+.hero p {
+    line-height: 1.6;
+}
+
+.hero-art {
+    font-size: 45px;
+}
+
+.quick {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 15px 0 22px;
+}
+
+.quick button {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 5px;
+}
+
+.quick span {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 6px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 18px 0;
+}
+
+.section-heading h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.product {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.product-image {
+    background: #eef0f4;
+    border-radius: 6px;
+    height: 115px;
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+    position: relative;
+}
+
+.discount {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #e52626;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+.product h3 {
+    font-size: 13px;
+    line-height: 1.4;
+    min-height: 35px;
+}
+
+.description {
+    font-size: 11px;
+    color: #687382;
+    line-height: 1.5;
+}
+
+.price {
+    color: #d95410;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.old-price {
+    font-size: 10px;
+    color: #999;
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+.rating {
+    color: #f28b00;
+    font-size: 11px;
+    margin-bottom: 12px;
+}
+
+.product .btn {
+    width: 100%;
+    margin-top: auto;
+    padding: 10px 4px;
+    font-size: 11px;
+}
+
+.wish {
+    background: white;
+    color: #d95410;
+    border: none;
+    padding: 10px 2px;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sale {
+    background: linear-gradient(135deg, #ff405b, #ff9b00);
+    color: white;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.sale h3 {
+    margin-top: 0;
+}
+
+.info {
+    padding: 15px;
+}
+
+.info h3 {
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.info p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #687382;
+    overflow-wrap: anywhere;
+}
+
+.info a {
+    color: #d95410;
+    font-weight: bold;
+}
+
+.empty {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 28px 4% 15px;
+    margin-top: 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.footer-grid h3 {
+    font-size: 14px;
+}
+
+.footer-grid p, .footer-grid a {
+    display: block;
+    color: #d0d4da;
+    font-size: 12px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.copyright {
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 11px;
+}
+
+.modal-bg {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0008;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 420px;
+    max-height: 85vh;
+    overflow: auto;
+}
+
+.modal p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+@media (max-width: 1050px) {
+    .layout {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .right-panel {
+        display: none;
+    }
+
+    .products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .header-main {
+        grid-template-columns: 180px 1fr;
+    }
+
+    .actions {
+        grid-column: 1 / -1;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 650px) {
+    .header-main {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        grid-column: auto;
+        justify-content: space-between;
+    }
+
+    .layout {
+        display: block;
+    }
+
+    .left-panel {
+        display: none;
+    }
+
+    .hero {
+        min-height: 200px;
+        padding: 20px;
+    }
+
+    .hero-art {
+        font-size: 28px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .product {
+        padding: 8px;
+    }
+
+    .product-image {
+        height: 100px;
+        font-size: 40px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <span>📍 Shopping in Kenya</span>
+    <span>🚚 Check delivery terms before ordering</span>
+    <span>🇰🇪 Currency: KSh</span>
+</div>
+
+<header>
+    <div class="header-main">
+
+        <div>
+            <div class="logo"><span>▣</span> KILI-STYLE</div>
+            <div class="tagline">Shop Smart. Save More.</div>
+        </div>
+
+        <form class="search" id="searchForm">
+            <input id="searchInput"
+                   type="search"
+                   placeholder="Search products and categories..."
+                   aria-label="Search products">
+            <button type="submit">⌕</button>
+        </form>
+
+        <div class="actions">
+            <button onclick="showAccount()">♙ Account</button>
+            <button onclick="showWishlist()">♡ Wishlist <span id="wishCount">0</span></button>
+            <button onclick="showCart()">🛒 Cart <span id="cartCount">0</span></button>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="#products" onclick="filterCategory('All')">All Products</a>
+        <a href="#products" onclick="filterCategory('Phones')">Phones</a>
+        <a href="#products" onclick="filterCategory('Computers')">Computers</a>
+        <a href="#products" onclick="filterCategory('Electronics')">Electronics</a>
+        <a href="#products" onclick="filterCategory('Fashion')">Fashion</a>
+        <a href="#products" onclick="filterCategory('Home')">Home & Kitchen</a>
+        <a href="#customer-support">Customer Support</a>
+    </nav>
+</header>
+
+<main>
+
+<div class="layout">
+
+    <aside class="left-panel panel">
+        <div class="category-title">☰ All Categories</div>
+
+        <div id="categories">
+            <button class="category active" data-category="All">✨ All Products</button>
+            <button class="category" data-category="Phones">📱 Phones & Tablets</button>
+            <button class="category" data-category="Computers">💻 Computers</button>
+            <button class="category" data-category="Electronics">🎧 Electronics</button>
+            <button class="category" data-category="Home">🍳 Home & Kitchen</button>
+            <button class="category" data-category="Fashion">👕 Fashion & Clothing</button>
+            <button class="category" data-category="Shoes">👟 Shoes & Bags</button>
+            <button class="category" data-category="Beauty">🧴 Beauty</button>
+            <button class="category" data-category="Sports">⚽ Sports</button>
+        </div>
+    </aside>
+
+    <section>
+
+        <div class="hero">
+            <div>
+                <h1>Great finds.<br><span>Everyday value.</span></h1>
+                <p>Discover phones, laptops, electronics, fashion and more.</p>
+                <button class="btn" onclick="scrollToProducts()">Shop Now →</button>
+            </div>
+            <div class="hero-art">📱 💻 🎧</div>
+        </div>
+
+        <div class="quick">
+            <button onclick="filterCategory('Phones')"><span>📱</span>Phones</button>
+            <button onclick="filterCategory('Computers')"><span>💻</span>Laptops</button>
+            <button onclick="filterCategory('Electronics')"><span>🎧</span>Electronics</button>
+            <button onclick="filterCategory('Fashion')"><span>👕</span>Fashion</button>
+            <button onclick="filterCategory('Shoes')"><span>👟</span>Shoes</button>
+            <button onclick="filterCategory('Home')"><span>🍳</span>Home</button>
+        </div>
+
+        <div class="section-heading" id="products">
+            <h2>🔥 Featured Products</h2>
+            <button onclick="filterCategory('All')">View All →</button>
+        </div>
+
+        <div class="products" id="productGrid"></div>
+
+    </section>
+
+    <aside class="right-panel">
+
+        <div class="sale">
+            <h3>⚡ Featured Deals</h3>
+            <p>Discover sample product offers.</p>
+            <button class="btn" onclick="showNotice('Featured Deals','These prices are examples. Confirm real product prices before publishing.')">Explore Deals</button>
+        </div>
+
+        <div class="info">
+            <h3>🚚 Delivery Information</h3>
+            <p>Delivery charges and timing depend on the destination and seller. Confirm delivery terms before ordering.</p>
+        </div>
+
+        <!-- CUSTOMER SUPPORT CONTACTS -->
+        <div class="info" id="customer-support">
+
+            <h3>☎ Customer Support</h3>
+
+            <p>
+                Have a question about a product or order?
+                Contact our support team.
+            </p>
+
+            <p>
+                📧 <strong>Email:</strong><br>
+                <a href="mailto:kilimallseller@gmail.com">
+                    kilimallseller@gmail.com
+                </a>
+            </p>
+
+            <p>
+                📱 <strong>Mobile:</strong><br>
+                <a href="tel:0116846519">
+                    0116846519
+                </a>
+            </p>
+
+            <p>
+                ✈️ <strong>Telegram:</strong><br>
+                <a href="https://t.me/kilimal"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    https://t.me/kilimal
+                </a>
+            </p>
+
+            <p>🇰🇪 Country: Kenya</p>
+
+        </div>
+
+    </aside>
+
+</div>
+
+</main>
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <div class="logo"><span>▣</span> KILI-STYLE</div>
+            <p>Shop Smart. Save More.</p>
+            <p>Independent marketplace demonstration.</p>
+        </div>
+
+        <div>
+            <h3>Customer Service</h3>
+            <p>Email: <a href="mailto:kilimallseller@gmail.com">kilimallseller@gmail.com</a></p>
+            <p>Mobile: <a href="tel:0116846519">0116846519</a></p>
+            <p>Telegram: <a href="https://t.me/kilimal" target="_blank" rel="noopener noreferrer">@kilimal</a></p>
+            <a href="#customer-support">Contact Support</a>
+        </div>
+
+        <div>
+            <h3>Shopping</h3>
+            <a href="#products">Browse Products</a>
+            <a href="#" onclick="showCart();return false;">Shopping Cart</a>
+            <a href="#" onclick="showWishlist();return false;">Wishlist</a>
+        </div>
+
+        <div>
+            <h3>Important Information</h3>
+            <p>All sample prices are shown in Kenyan shillings (KSh).</p>
+            <p>This demo does not process payments or save real orders.</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © <span id="year"></span> Kili-Style Market. All rights reserved.
+    </div>
+
+</footer>
+
+<div class="modal-bg" id="modalBg">
+    <div class="modal" role="dialog" aria-modal="true">
+        <h2 id="modalTitle">Notice</h2>
+        <div id="modalContent"></div>
+        <button class="btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+const products = [
+    {id:1,name:"Android Smartphone",category:"Phones",description:"Large display and dual SIM",price:16999,old:19999,icon:"📱",discount:"-15%"},
+    {id:2,name:"Student Laptop",category:"Computers",description:"For school and office",price:34999,old:39999,icon:"💻",discount:"-12%"},
+    {id:3,name:"Wireless Earbuds",category:"Electronics",description:"Wireless audio with charging case",price:2499,old:3299,icon:"🎧",discount:"-24%"},
+    {id:4,name:"Everyday Sneakers",category:"Shoes",description:"Casual everyday shoes",price:3999,old:5000,icon:"👟",discount:"-20%"},
+    {id:5,name:"Smart Watch",category:"Electronics",description:"Activity tracking and notifications",price:1999,old:2700,icon:"⌚",discount:"-26%"},
+    {id:6,name:"Air Fryer",category:"Home",description:"Kitchen appliance",price:8999,old:11500,icon:"🍟",discount:"-22%"},
+    {id:7,name:"Everyday Backpack",category:"Fashion",description:"For school or travel",price:1899,old:2400,icon:"🎒",discount:"-21%"},
+    {id:8,name:"Skincare Set",category:"Beauty",description:"Personal care products",price:1299,old:1600,icon:"🧴",discount:"-19%"},
+    {id:9,name:"Football",category:"Sports",description:"Recreational football",price:1499,old:1900,icon:"⚽",discount:"-21%"},
+    {id:10,name:"Cotton T-shirt",category:"Fashion",description:"Casual clothing",price:799,old:1000,icon:"👕",discount:"-20%"},
+    {id:11,name:"Tablet",category:"Phones",description:"Portable screen for learning",price:12999,old:14999,icon:"📲",discount:"-13%"},
+    {id:12,name:"Kitchen Storage Set",category:"Home",description:"Household storage containers",price:899,old:1200,icon:"🥣",discount:"-25%"}
+];
+
+let category = "All";
+let cart = [];
+let wishlist = [];
+
+function money(value) {
+    return "KSh " + value.toLocaleString("en-KE");
+}
+
+function renderProducts() {
+    const query = document.getElementById("searchInput").value.toLowerCase().trim();
+
+    const results = products.filter(p =>
+        (category === "All" || p.category === category) &&
+        (p.name + " " + p.category + " " + p.description).toLowerCase().includes(query)
+    );
+
+    const grid = document.getElementById("productGrid");
+
+    if (!results.length) {
+        grid.innerHTML = '<div class="empty">No products found. Try another search.</div>';
+        return;
+    }
+
+    grid.innerHTML = results.map(p => `
+        <article class="product">
+            <div class="product-image">
+                ${p.icon}
+                <span class="discount">${p.discount}</span>
+            </div>
+            <h3>${p.name}</h3>
+            <div class="description">${p.description}</div>
+            <p class="price">
+                ${money(p.price)}
+                <span class="old-price">${money(p.old)}</span>
+            </p>
+            <div class="rating">★★★★☆</div>
+            <button class="btn" onclick="addToCart(${p.id})">Add to Cart</button>
+            <button class="wish" onclick="toggleWishlist(${p.id})">♡ Add to Wishlist</button>
+        </article>
+    `).join("");
+}
+
+function filterCategory(selected) {
+    category = selected;
+
+    document.querySelectorAll("[data-category]").forEach(button => {
+        button.classList.toggle("active", button.dataset.category === selected);
+    });
+
+    renderProducts();
+}
+
+document.getElementById("categories").addEventListener("click", event => {
+    const button = event.target.closest("[data-category]");
+    if (button) filterCategory(button.dataset.category);
+});
+
+document.getElementById("searchForm").addEventListener("submit", event => {
+    event.preventDefault();
+    renderProducts();
+});
+
+document.getElementById("searchInput").addEventListener("input", renderProducts);
+
+function addToCart(id) {
+    cart.push(id);
+    document.getElementById("cartCount").textContent = cart.length;
+    showNotice("Added to Cart", products.find(p => p.id === id).name + " was added to your demo cart.");
+}
+
+function showCart() {
+    if (!cart.length) {
+        showNotice("Shopping Cart", "Your cart is empty. Add a product to begin.");
+        return;
+    }
+
+    const quantities = {};
+    cart.forEach(id => quantities[id] = (quantities[id] || 0) + 1);
+
+    let total = 0;
+    let html = "";
+
+    Object.entries(quantities).forEach(([id, quantity]) => {
+        const p = products.find(item => item.id === Number(id));
+        const subtotal = p.price * quantity;
+        total += subtotal;
+        html += `<p>${p.icon} ${p.name} × ${quantity} — <strong>${money(subtotal)}</strong></p>`;
+    });
+
+    html += `<hr><p><strong>Total: ${money(total)}</strong></p>
+    <p>This is a demo cart. No order or payment is processed.</p>`;
+
+    showNotice("Your Shopping Cart", html);
+}
+
+function toggleWishlist(id) {
+    wishlist = wishlist.includes(id)
+        ? wishlist.filter(item => item !== id)
+        : [...wishlist, id];
+
+    document.getElementById("wishCount").textContent = wishlist.length;
+    renderProducts();
+}
+
+function showWishlist() {
+    const saved = wishlist.map(id => products.find(p => p.id === id));
+
+    const html = saved.length
+        ? saved.map(p => `<p>${p.icon} ${p.name} — ${money(p.price)}</p>`).join("")
+        : "<p>Your wishlist is empty.</p>";
+
+    showNotice("Your Wishlist", html);
+}
+
+function showAccount() {
+    showNotice("Customer Account", "Customer registration and secure login need a backend service.");
+}
+
+function showNotice(title, message) {
+    document.getElementById("modalTitle").textContent = title;
+    document.getElementById("modalContent").innerHTML =
+        typeof message === "string" && message.startsWith("<")
+        ? message
+        : "<p>" + message + "</p>";
+
+    document.getElementById("modalBg").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modalBg").style.display = "none";
+}
+
+document.getElementById("modalBg").addEventListener("click", event => {
+    if (event.target.id === "modalBg") closeModal();
+});
+
+function scrollToProducts() {
+    document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+renderProducts();
+</script>
+
+</body>
+</html>
