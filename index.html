@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KILIMAL ENTERPRISE | Online Shopping
+        </title>
+          <meta name="description" content="Shop electronics, fashion, home essentials and accessories at Kilimal Enterprise.">
+            <style>* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --orange: #ff5b0a;
+    --dark: #111820;
+    --light: #f5f6f8;
+    --white: #ffffff;
+    --text: #252b35;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.topbar {
+    background: var(--orange);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 13px;
+}
+
+header {
+    background: var(--dark);
+    color: white;
+    padding: 16px;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+.search-box {
+    display: flex;
+    flex: 1;
+    min-width: 180px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 0 6px 6px 0;
+}
+
+.cart-button {
+    padding: 11px 14px;
+    background: #303944;
+    border: 1px solid #505965;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+nav {
+    background: #202832;
+    color: white;
+    display: flex;
+    gap: 25px;
+    padding: 13px 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: var(--orange);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 300px;
+    background: linear-gradient(120deg, #10161d, #343a42, #ff5b0a);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    gap: 20px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.15;
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    color: #ff8b4c;
+}
+
+.hero p {
+    color: #eeeeee;
+    margin-bottom: 20px;
+}
+
+.hero-art {
+    font-size: clamp(55px, 10vw, 105px);
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.btn:hover,
+.add-cart:hover {
+    background: #df4a00;
+}
+
+/* BENEFITS */
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0 30px;
+}
+
+.benefit {
+    background: white;
+    padding: 16px;
+    border: 1px solid #e6e8ec;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.benefit strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* PRODUCT SECTION */
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 25px 0 15px;
+}
+
+.section-title h2 {
+    font-size: 25px;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 22px;
+    padding: 9px 15px;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--orange);
+    color: white;
+    border-color: var(--orange);
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.product {
+    background: white;
+    border: 1px solid #e6e8ec;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 18px #00000012;
+}
+
+.product-image {
+    height: 190px;
+    background: #eceff2;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sale {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: var(--orange);
+    color: white;
+    font-size: 11px;
+}
+
+.product-info {
+    padding: 13px;
+}
+
+.category {
+    color: var(--orange);
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.product h3 {
+    font-size: 15px;
+    margin: 7px 0;
+    min-height: 40px;
+}
+
+.description {
+    color: #6b7280;
+    font-size: 12px;
+    min-height: 38px;
+}
+
+.price {
+    font-size: 19px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.old-price {
+    font-size: 12px;
+    color: #888;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+.add-cart {
+    width: 100%;
+    padding: 11px;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* PROMOTIONAL BANNERS */
+
+.banners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 30px 0;
+}
+
+.banner {
+    background: linear-gradient(120deg, #151b22, #ff5b0a);
+    color: white;
+    padding: 28px;
+    min-height: 160px;
+    border-radius: 10px;
+}
+
+.banner h3 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.banner p {
+    margin-bottom: 14px;
+}
+
+.banner a {
+    display: inline-block;
+    background: white;
+    color: #222;
+    padding: 9px 14px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* CONTACT AND PAYMENT */
+
+.information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 30px 0;
+}
+
+.info-box {
+    background: white;
+    border: 1px solid #e4e7eb;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.info-box h2 {
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: #596575;
+    margin: 10px 0;
+    overflow-wrap: anywhere;
+}
+
+.payment-number {
+    display: inline-block;
+    background: #effaf3;
+    border: 1px dashed #75bd91;
+    color: #16834a;
+    padding: 12px 16px;
+    border-radius: 7px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.contact-link {
+    display: inline-block;
+    background: #168acb;
+    color: white;
+    padding: 11px 14px;
+    border-radius: 6px;
+    margin: 8px 5px 0 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.email-link {
+    background: #252b35;
+}
+
+.notice {
+    background: #fff7e8;
+    border: 1px solid #efd8a7;
+    color: #76551b;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 12px;
+    margin-top: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111820;
+    color: white;
+    padding: 30px 20px;
+}
+
+.footer-content {
+    max-width: 1160px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+footer h3 {
+    margin-bottom: 12px;
+}
+
+footer p,
+footer a {
+    color: #d2d6dc;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.copyright {
+    max-width: 1160px;
+    margin: 20px auto 0;
+    padding-top: 15px;
+    border-top: 1px solid #ffffff25;
+    color: #b9c0c9;
+    font-size: 12px;
+}
+
+/* SHOPPING CART */
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0009;
+    z-index: 50;
+    justify-content: flex-end;
+}
+
+.overlay.open {
+    display: flex;
+}
+
+.drawer {
+    background: white;
+    width: min(430px, 100%);
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.close-cart {
+    border: none;
+    padding: 5px 12px;
+    font-size: 24px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.quantity {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.quantity button {
+    padding: 4px 10px;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.remove {
+    display: block;
+    color: #c33;
+    border: none;
+    background: none;
+    margin-top: 7px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 22px 0;
+}
+
+.checkout {
+    width: 100%;
+    padding: 13px;
+    background: #16834a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.checkout:disabled {
+    opacity: 0.5;
+}
+
+.cart-note {
+    font-size: 12px;
+    color: #68717b;
+    margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .benefits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .product-image {
+        height: 145px;
+    }
+
+    .hero {
+        padding: 25px;
+    }
+
+    .hero-art {
+        display: none;
+    }
+
+    .banners,
+    .information {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 220px;
+    }
+}
+            </style>
+            </head>
+              <body>
+                <div class="topbar">Welcome to KILIMAL ENTERPRISE | Shop Smart, Live Better
+                </div>
+                  <header>
+                    <div class="header-content">
+                      <a class="logo" href="#">
+                        <span>◆ KILIMAL
+                        </span>
+                          <small style="display:block;text-align:right;font-size:11px;">ENTERPRISE
+                          </small>
+                          </a>
+                            <form class="search-box" id="searchForm">
+                              <input id="searchInput"
+                   type="search"
+                   placeholder="Search products..."
+                   aria-label="Search products">
+                                <button type="submit">Search
+                                </button>
+                                </form>
+                                  <button class="cart-button" id="openCart">🛒 Cart (
+                                    <span id="cartCount">0
+                                    </span>)
+                                    </button>
+                                    </div>
+                                    </header>
+                                      <nav>
+                                        <a href="#products" data-category="All">All Products
+                                        </a>
+                                          <a href="#products" data-category="Electronics">Electronics
+                                          </a>
+                                            <a href="#products" data-category="Fashion">Fashion
+                                            </a>
+                                              <a href="#products" data-category="Home">Home & Kitchen
+                                              </a>
+                                                <a href="#products" data-category="Accessories">Accessories
+                                                </a>
+                                                  <a href="#contact">Contact
+                                                  </a>
+                                                  </nav>
+                                                    <main class="container">
+                                                      <section class="hero">
+                                                        <div class="hero-content">
+                                                          <p>QUALITY • VALUE • CONVENIENCE
+                                                          </p>
+                                                            <h1>KILIMAL
+                                                              <span>ENTERPRISE
+                                                              </span>
+                                                                <br>Shop Smart. Live Better.
+                                                              </h1>
+                                                                <p>Discover electronics, fashion, home essentials and
+                useful accessories at our online shopping store.
+                                                                </p>
+                                                                  <a href="#products" class="btn">SHOP NOW →
+                                                                  </a>
+                                                                  </div>
+                                                                    <div class="hero-art" aria-hidden="true">📱 💻 🎧 🛍️
+                                                                    </div>
+                                                                    </section>
+                                                                      <section class="benefits">
+                                                                        <div class="benefit">
+                                                                          <strong>🛡️ Quality Products
+                                                                          </strong>Explore products for everyday use.
+                                                                          </div>
+                                                                            <div class="benefit">
+                                                                              <strong>💰 Clear Prices
+                                                                              </strong>View prices before ordering.
+                                                                              </div>
+                                                                                <div class="benefit">
+                                                                                  <strong>📦 Easy Ordering
+                                                                                  </strong>Add items to your shopping cart.
+                                                                                  </div>
+                                                                                    <div class="benefit">
+                                                                                      <strong>💬 Customer Support
+                                                                                      </strong>Contact us through Telegram.
+                                                                                      </div>
+                                                                                      </section>
+                                                                                        <section id="products">
+                                                                                          <div class="section-title">
+                                                                                            <div>
+                                                                                              <h2>Featured Products
+                                                                                              </h2>
+                                                                                                <p>Explore our catalogue and choose your items.
+                                                                                                </p>
+                                                                                                </div>
+                                                                                                  <span id="resultCount">
+                                                                                                  </span>
+                                                                                                  </div>
+                                                                                                    <div class="filters">
+                                                                                                      <button class="filter-btn active" data-category="All">All Items
+                                                                                                      </button>
+                                                                                                        <button class="filter-btn" data-category="Electronics">Electronics
+                                                                                                        </button>
+                                                                                                          <button class="filter-btn" data-category="Fashion">Fashion
+                                                                                                          </button>
+                                                                                                            <button class="filter-btn" data-category="Home">Home & Kitchen
+                                                                                                            </button>
+                                                                                                              <button class="filter-btn" data-category="Accessories">Accessories
+                                                                                                              </button>
+                                                                                                              </div>
+                                                                                                                <div class="products" id="productGrid">
+                                                                                                                </div>
+                                                                                                                </section>
+                                                                                                                  <section class="banners">
+                                                                                                                    <div class="banner">
+                                                                                                                      <h3>Latest Electronics
+                                                                                                                      </h3>
+                                                                                                                        <p>Discover gadgets and everyday technology.
+                                                                                                                        </p>
+                                                                                                                          <a href="#products" data-category="Electronics">Explore Electronics →
+                                                                                                                          </a>
+                                                                                                                          </div>
+                                                                                                                            <div class="banner">
+                                                                                                                              <h3>Home & Lifestyle
+                                                                                                                              </h3>
+                                                                                                                                <p>Find useful items for your home.
+                                                                                                                                </p>
+                                                                                                                                  <a href="#products" data-category="Home">Shop Home Items →
+                                                                                                                                  </a>
+                                                                                                                                  </div>
+                                                                                                                                  </section>
+                                                                                                                                    <section class="information" id="contact">
+                                                                                                                                      <div class="info-box">
+                                                                                                                                        <h2>☎️ Customer Support
+                                                                                                                                        </h2>
+                                                                                                                                          <p>Need assistance with an item, order or delivery?
+                Contact Kilimal Enterprise.
+                                                                                                                                          </p>
+                                                                                                                                            <p>
+                                                                                                                                              <strong>Telegram:
+                                                                                                                                              </strong>
+                                                                                                                                                <br>
+                                                                                                                                                <a href="https://t.me/kilimal"
+                   target="_blank"
+                   rel="noopener">t.me/kilimal
+                                                                                                                                                </a>
+                                                                                                                                                </p>
+                                                                                                                                                  <p>
+                                                                                                                                                    <strong>Email:
+                                                                                                                                                    </strong>
+                                                                                                                                                      <br>
+                                                                                                                                                      <a href="mailto:kilimallseller@gmail.com">kilimallseller@gmail.com
+                                                                                                                                                      </a>
+                                                                                                                                                      </p>
+                                                                                                                                                        <a class="contact-link"
+               href="https://t.me/kilimal"
+               target="_blank"
+               rel="noopener">Message on Telegram
+                                                                                                                                                        </a>
+                                                                                                                                                          <a class="contact-link email-link"
+               href="mailto:kilimallseller@gmail.com">Send Email
+                                                                                                                                                          </a>
+                                                                                                                                                          </div>
+                                                                                                                                                            <div class="info-box">
+                                                                                                                                                              <h2>💳 Payment Information
+                                                                                                                                                              </h2>
+                                                                                                                                                                <p>Payment number provided for this store:
+                                                                                                                                                                </p>
+                                                                                                                                                                  <div class="payment-number">0116846519
+                                                                                                                                                                  </div>
+                                                                                                                                                                    <p>Confirm the final price, stock availability,
+                delivery fee and payment instructions with the
+                seller before making payment.
+                                                                                                                                                                    </p>
+                                                                                                                                                                      <div class="notice">
+                                                                                                                                                                        <strong>Important:
+                                                                                                                                                                        </strong>This is an independent store template, not the
+                official Kilimall website. Product images and
+                prices are examples. Update them with your actual
+                stock and verified prices before publishing.
+                Never share your mobile-money PIN.
+                                                                                                                                                                        </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        </section>
+                                                                                                                                                                        </main>
+                                                                                                                                                                          <footer>
+                                                                                                                                                                            <div class="footer-content">
+                                                                                                                                                                              <div>
+                                                                                                                                                                                <h3>◆ KILIMAL ENTERPRISE
+                                                                                                                                                                                </h3>
+                                                                                                                                                                                  <p>Shop Smart. Live Better.
+                                                                                                                                                                                  </p>
+                                                                                                                                                                                    <p>Your online shopping catalogue.
+                                                                                                                                                                                    </p>
+                                                                                                                                                                                    </div>
+                                                                                                                                                                                      <div>
+                                                                                                                                                                                        <h3>Quick Links
+                                                                                                                                                                                        </h3>
+                                                                                                                                                                                          <p>
+                                                                                                                                                                                            <a href="#products">Shop Products
+                                                                                                                                                                                            </a>
+                                                                                                                                                                                              <br>
+                                                                                                                                                                                              <a href="#contact">Contact Us
+                                                                                                                                                                                              </a>
+                                                                                                                                                                                                <br>
+                                                                                                                                                                                                <a href="https://t.me/kilimal"
+                   target="_blank"
+                   rel="noopener">Telegram Support
+                                                                                                                                                                                                </a>
+                                                                                                                                                                                                </p>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                                  <div>
+                                                                                                                                                                                                    <h3>Contact & Payment
+                                                                                                                                                                                                    </h3>
+                                                                                                                                                                                                      <p>Telegram: t.me/kilimal
+                                                                                                                                                                                                        <br>Email: kilimallseller@gmail.com
+                                                                                                                                                                                                        <br>Payment: 0116846519
+                                                                                                                                                                                                      </p>
+                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                        <div class="copyright">©
+                                                                                                                                                                                                          <span id="year">
+                                                                                                                                                                                                          </span>KILIMAL ENTERPRISE.
+        Product details and prices should be verified by the seller.
+                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                          </footer>
+                                                                                                                                                                                                            <!-- SHOPPING CART PANEL -->
+                                                                                                                                                                                                              <div class="overlay" id="cartOverlay" aria-hidden="true">
+                                                                                                                                                                                                                <aside class="drawer" role="dialog" aria-modal="true">
+                                                                                                                                                                                                                  <div class="drawer-header">
+                                                                                                                                                                                                                    <h2>Your Shopping Cart
+                                                                                                                                                                                                                    </h2>
+                                                                                                                                                                                                                      <button class="close-cart" id="closeCart">×
+                                                                                                                                                                                                                      </button>
+                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                        <div id="cartItems">
+                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                          <div class="total">
+                                                                                                                                                                                                                            <span>Total:
+                                                                                                                                                                                                                            </span>
+                                                                                                                                                                                                                              <span id="cartTotal">KSh 0
+                                                                                                                                                                                                                              </span>
+                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                <button class="checkout" id="checkout">Send Order via Telegram
+                                                                                                                                                                                                                                </button>
+                                                                                                                                                                                                                                  <p class="cart-note">This button sends your selected items to Telegram
+            for order confirmation. It does not automatically
+            process payments.
+                                                                                                                                                                                                                                  </p>
+                                                                                                                                                                                                                                  </aside>
+                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                    <script>>/* PRODUCT CATALOGUE
+   Edit the names, descriptions, prices and picture URLs
+   to match your actual products.
+*/
+
+const products = [
+
+    {
+        id: 1,
+        name: "Samsung Galaxy A15",
+        category: "Electronics",
+        price: 16999,
+        oldPrice: 19999,
+        description: "Smartphone for calls, photography and apps.",
+        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 2,
+        name: "Laptop Computer",
+        category: "Electronics",
+        price: 49999,
+        oldPrice: 55999,
+        description: "Portable computer for work, study and entertainment.",
+        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 3,
+        name: "Wireless Earbuds",
+        category: "Electronics",
+        price: 1999,
+        oldPrice: 2499,
+        description: "Compact wireless audio for music and calls.",
+        image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 4,
+        name: "Smart Watch",
+        category: "Electronics",
+        price: 4999,
+        oldPrice: 6999,
+        description: "Modern watch for everyday activities.",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 5,
+        name: "Bluetooth Speaker",
+        category: "Electronics",
+        price: 2500,
+        oldPrice: 3200,
+        description: "Portable speaker for home and outdoor listening.",
+        image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 6,
+        name: "Running Sneakers",
+        category: "Fashion",
+        price: 3100,
+        oldPrice: 3900,
+        description: "Casual footwear for everyday wear.",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 7,
+        name: "Everyday Backpack",
+        category: "Accessories",
+        price: 1750,
+        oldPrice: 2200,
+        description: "Useful bag for school, work and travel.",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 8,
+        name: "Insulated Water Bottle",
+        category: "Home",
+        price: 850,
+        oldPrice: 1100,
+        description: "Reusable bottle for daily hydration.",
+        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 9,
+        name: "Modern Desk Lamp",
+        category: "Home",
+        price: 1450,
+        oldPrice: 1800,
+        description: "Lighting for a desk, reading corner or bedroom.",
+        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 10,
+        name: "Fashion Sunglasses",
+        category: "Fashion",
+        price: 950,
+        oldPrice: 1300,
+        description: "Classic accessory for a casual look.",
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 11,
+        name: "Ceramic Coffee Mug",
+        category: "Home",
+        price: 550,
+        oldPrice: 750,
+        description: "Everyday mug for tea and coffee.",
+        image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80"
+    },
+
+    {
+        id: 12,
+        name: "Protective Phone Case",
+        category: "Accessories",
+        price: 450,
+        oldPrice: 650,
+        description: "A practical accessory for everyday phone use.",
+        image: "https://images.unsplash.com/photo-1601593346740-925612772716?auto=format&fit=crop&w=600&q=80"
+    }
+
+];
+
+const cart = {};
+
+let selectedCategory = "All";
+let searchTerm = "";
+
+const productGrid = document.getElementById("productGrid");
+
+function formatMoney(amount) {
+    return "KSh " + amount.toLocaleString("en-KE");
+}
+
+/* DISPLAY PRODUCTS */
+
+function displayProducts() {
+
+    const filteredProducts = products.filter(product =
+                                {
+
+        const matchesCategory =
+            selectedCategory === "All" ||
+            product.category === selectedCategory;
+
+        const searchableText =
+            (
+                product.name + " " +
+                product.description + " " +
+                product.category
+            ).toLowerCase();
+
+        const matchesSearch =
+            searchableText.includes(searchTerm);
+
+        return matchesCategory && matchesSearch;
+
+    });
+
+    document.getElementById("resultCount").textContent =
+        filteredProducts.length + " products";
+
+    if (filteredProducts.length === 0) {
+
+        productGrid.innerHTML =
+            "
+                                                                                                                                                                                                                                      <p>No products found. Try another search.
+                                                                                                                                                                                                                                      </p>>";
+
+        return;
+    }
+
+    productGrid.innerHTML = filteredProducts.map(product =
+                                `
+                                                                                                                                                                                                                                        <article class="product">
+                                                                                                                                                                                                                                          <div class="product-image">
+                                                                                                                                                                                                                                            <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x450?text=Product+Image'"
+                >
+                                                                                                                                                                                                                                              <span class="sale">Featured
+                                                                                                                                                                                                                                              </span>
+                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                <div class="product-info">
+                                                                                                                                                                                                                                                  <div class="category">${product.category}
+                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                    <h3>${product.name}
+                                                                                                                                                                                                                                                    </h3>
+                                                                                                                                                                                                                                                      <p class="description">${product.description}
+                                                                                                                                                                                                                                                      </p>
+                                                                                                                                                                                                                                                        <div class="price">${formatMoney(product.price)}
+                                                                                                                                                                                                                                                          <span class="old-price">${formatMoney(product.oldPrice)}
+                                                                                                                                                                                                                                                          </span>
+                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                            <button
+                    class="add-cart"
+                    onclick="addToCart(${product.id})"
+                >🛒 Add to Cart
+                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                            </article>`).join("");
+
+}
+
+/* ADD PRODUCT TO CART */
+
+function addToCart(id) {
+
+    cart[id] = (cart[id] || 0) + 1;
+
+    updateCart();
+
+}
+
+/* CHANGE PRODUCT QUANTITY */
+
+function changeQuantity(id, change) {
+
+    cart[id] = (cart[id] || 0) + change;
+
+    if (cart[id]
+                                                                                                                                                                                                                                                              <= 0) {
+        delete cart[id];
+    }
+
+    updateCart();
+
+}
+
+/* REMOVE PRODUCT */
+
+function removeProduct(id) {
+
+    delete cart[id];
+
+    updateCart();
+
+}
+
+/* UPDATE CART AND TOTAL */
+
+function updateCart() {
+
+    const entries = Object.entries(cart);
+
+    const count = entries.reduce(
+        (total, entry) =>total + entry[1],
+        0
+    );
+
+    document.getElementById("cartCount").textContent = count;
+
+    const cartItems = document.getElementById("cartItems");
+
+    if (entries.length === 0) {
+
+        cartItems.innerHTML =
+            "
+                                                                                                                                                                                                                                                                <p>Your shopping cart is empty.
+                                                                                                                                                                                                                                                                </p>>>";
+
+    } else {
+
+        cartItems.innerHTML = entries.map(([id, quantity]) =
+                                    {
+
+            const product = products.find(
+                item =
+                                    item.id === Number(id)
+            );
+
+            return `
+                                                                                                                                                                                                                                                                  <div class="cart-item">
+                                                                                                                                                                                                                                                                    <div>
+                                                                                                                                                                                                                                                                      <strong>${product.name}
+                                                                                                                                                                                                                                                                      </strong>
+                                                                                                                                                                                                                                                                        <p>${formatMoney(product.price)} each
+                                                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                                                          <div class="quantity">
+                                                                                                                                                                                                                                                                            <button
+                                onclick="changeQuantity(${product.id}, -1)"
+                            >−
+                                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                                              <span>${quantity}
+                                                                                                                                                                                                                                                                              </span>
+                                                                                                                                                                                                                                                                                <button
+                                onclick="changeQuantity(${product.id}, 1)"
+                            >+
+                                                                                                                                                                                                                                                                                </button>
+                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                  <button
+                            class="remove"
+                            onclick="removeProduct(${product.id})"
+                        >Remove
+                                                                                                                                                                                                                                                                                  </button>
+                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                    <strong>${formatMoney(product.price * quantity)}
+                                                                                                                                                                                                                                                                                    </strong>
+                                                                                                                                                                                                                                                                                    </div>>>>>>>>>`;
+
+        }).join("");
+
+    }
+
+    const total = entries.reduce((sum, [id, quantity]) =
+                                    {
+
+        const product = products.find(
+            item =
+                                    item.id === Number(id)
+        );
+
+        return sum + product.price * quantity;
+
+    }, 0);
+
+    document.getElementById("cartTotal").textContent =
+        formatMoney(total);
+
+    document.getElementById("checkout").disabled =
+        entries.length === 0;
+
+}
+
+/* OPEN AND CLOSE CART */
+
+document.getElementById("openCart").addEventListener(
+    "click",
+    function () {
+
+        document.getElementById("cartOverlay")
+            .classList.add("open");
+
+        document.getElementById("cartOverlay")
+            .setAttribute("aria-hidden", "false");
+
+    }
+);
+
+function closeCart() {
+
+    document.getElementById("cartOverlay")
+        .classList.remove("open");
+
+    document.getElementById("cartOverlay")
+        .setAttribute("aria-hidden", "true");
+
+}
+
+document.getElementById("closeCart")
+    .addEventListener("click", closeCart);
+
+document.getElementById("cartOverlay")
+    .addEventListener("click", function(event) {
+
+        if (event.target.id === "cartOverlay") {
+            closeCart();
+        }
+
+    });
+
+/* SEARCH PRODUCTS */
+
+document.getElementById("searchForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        searchTerm = document.getElementById("searchInput")
+            .value.trim().toLowerCase();
+
+        displayProducts();
+
+        document.getElementById("products")
+            .scrollIntoView({ behavior: "smooth" });
+
+    });
+
+document.getElementById("searchInput")
+    .addEventListener("input", function(event) {
+
+        searchTerm = event.target.value.trim().toLowerCase();
+
+        displayProducts();
+
+    });
+
+/* FILTER CATEGORIES */
+
+document.querySelectorAll("[data-category]")
+    .forEach(button =
+                                    {
+
+        button.addEventListener("click", function() {
+
+            selectedCategory = this.dataset.category;
+
+            document.querySelectorAll(".filter-btn")
+                .forEach(filter =
+                                    {
+
+                    filter.classList.toggle(
+                        "active",
+                        filter.dataset.category === selectedCategory
+                    );
+
+                });
+
+            displayProducts();
+
+        });
+
+    });
+
+/* SEND ORDER TO TELEGRAM */
+
+document.getElementById("checkout")
+    .addEventListener("click", function() {
+
+        const entries = Object.entries(cart);
+
+        if (entries.length === 0) {
+            return;
+        }
+
+        const orderLines = entries.map(([id, quantity]) =
+                                    {
+
+            const product = products.find(
+                item =
+                                    item.id === Number(id)
+            );
+
+            return (
+                product.name +
+                " x " + quantity +
+                " = " +
+                formatMoney(product.price * quantity)
+            );
+
+        });
+
+        const total = entries.reduce((sum, [id, quantity]) =
+                                    {
+
+            const product = products.find(
+                item =
+                                    item.id === Number(id)
+            );
+
+            return sum + product.price * quantity;
+
+        }, 0);
+
+        const message =
+            "Hello Kilimal Enterprise! I would like to place an order:\n\n" +
+            orderLines.join("\n") +
+            "\n\nTotal: " + formatMoney(total) +
+            "\n\nPlease confirm product availability, delivery charges and payment instructions.";
+
+        const telegramURL =
